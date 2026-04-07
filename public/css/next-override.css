@@ -1,0 +1,139 @@
+/* Product page: keep the original structure, hide only the real left sidebar below,
+   and make the main image a bit smaller and cleaner */
+section.product .main {
+    padding: 36px 0 50px;
+}
+
+section.product .product-flex .product-flex-gallery {
+    position: relative;
+}
+
+section.product .product-flex .product-flex-gallery .owl-product-gallery {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid rgba(24, 24, 24, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(24, 24, 24, 0.08);
+}
+
+section.product .product-flex .product-flex-gallery .owl-wrapper-outer,
+section.product .product-flex .product-flex-gallery .owl-item,
+section.product .product-flex .product-flex-gallery a {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+section.product .product-flex .product-flex-gallery img {
+    width: 100% !important;
+    height: clamp(280px, 34vw, 420px) !important;
+    max-height: 420px;
+    object-fit: contain;
+    background: #f7f4ee;
+    border-radius: 18px;
+}
+
+section.product .product-flex .btn-buy {
+    right: 24px;
+    top: 16px;
+    width: 68px;
+    height: 68px;
+}
+
+section.product .product-flex .btn-buy:before,
+section.product .product-flex .btn-buy:after {
+    line-height: 68px;
+}
+
+section.product > .info > .container > .row > .col-md-4:first-child {
+    display: none;
+}
+
+section.product > .info > .container > .row > .col-md-8:last-child {
+    float: none;
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    section.product .main {
+        padding: 24px 0 36px;
+    }
+
+    section.product .product-flex .product-flex-gallery .owl-product-gallery {
+        padding: 14px;
+        border-radius: 18px;
+    }
+
+    section.product .product-flex .product-flex-gallery img {
+        height: 300px !important;
+        border-radius: 14px;
+    }
+}
+
+/* Categories dropdown: prevent label overlap and keep items readable */
+nav .navigation-main .floating-menu > ul > li .navbar-dropdown .navbar-box .box-1 {
+    width: 36%;
+}
+
+nav .navigation-main .floating-menu > ul > li .navbar-dropdown .navbar-box .box-2 {
+    width: 64%;
+}
+
+nav .categories .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav .categories .row > div {
+    display: flex;
+}
+
+nav .categories a {
+    width: 100%;
+    height: 100%;
+}
+
+nav .categories figure {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+nav .categories figure .f-icon {
+    font-size: 64px;
+    line-height: 1;
+    margin-bottom: 14px;
+}
+
+nav .categories figure figcaption {
+    display: block;
+    max-width: 140px;
+    min-height: 2.8em;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+}
+
+@media (max-width: 991px) {
+    nav .categories figure {
+        margin-bottom: 0;
+        padding: 28px 10px;
+    }
+
+    nav .categories figure .f-icon {
+        font-size: 52px;
+        margin-bottom: 10px;
+    }
+
+    nav .categories figure figcaption {
+        max-width: none;
+        min-height: auto;
+    }
+}

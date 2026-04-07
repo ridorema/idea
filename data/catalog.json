@@ -1,0 +1,223 @@
+{
+  "categories": [
+    {
+      "id": "737997c0-324a-4df8-9b31-607dc50788cc",
+      "name": "Dhoma gjumi",
+      "slug": "dhoma-gjumi",
+      "routeSlug": "category-dhoma-gjumi",
+      "description": "Komplete, garderoba dhe komodina per nje ambient te plote dhe te rregullt gjumi.",
+      "coverImage": "/assets/images/showroom-portrait-01.jpg",
+      "sortOrder": 1,
+      "isVisible": true
+    },
+    {
+      "id": "fda0d481-0f74-461e-8968-6b009e04fbae",
+      "name": "Krevat",
+      "slug": "krevat",
+      "routeSlug": "category-krevat",
+      "description": "Modele krevatesh klasike dhe moderne qe pershtaten me cdo hapesire.",
+      "coverImage": "/assets/images/showroom-portrait-02.jpg",
+      "sortOrder": 2,
+      "isVisible": true
+    },
+    {
+      "id": "e502bbc8-e485-413f-a0a6-75f7f3079394",
+      "name": "Kuzhina",
+      "slug": "kuzhina",
+      "routeSlug": "category-kuzhina",
+      "description": "Zgjidhje funksionale dhe elegante per kuzhinen e perditshme dhe ambientet e ngrenies.",
+      "coverImage": "/assets/images/showroom-banner-01.jpg",
+      "sortOrder": 3,
+      "isVisible": true
+    },
+    {
+      "id": "d56007bb-9843-4ece-8ec4-9d08ff9acbc9",
+      "name": "Tavolina me karrige",
+      "slug": "tavolina-karrige",
+      "routeSlug": "category-tavolina-karrige",
+      "description": "Sete ngrenieje per familjen, pritjen dhe ambientin e restorantit ose studios.",
+      "coverImage": "/assets/images/showroom-square-05.webp",
+      "sortOrder": 4,
+      "isVisible": true
+    },
+    {
+      "id": "b0ec2521-0527-49a9-bc38-8accecc4ce98",
+      "name": "Tavolina mesi",
+      "slug": "tavolina-mesi",
+      "routeSlug": "category-tavolina-mesi",
+      "description": "Tavolina praktike qe kompletojne sallonin me stil, funksion dhe shije.",
+      "coverImage": "/assets/images/showroom-square-01.webp",
+      "sortOrder": 5,
+      "isVisible": true
+    },
+    {
+      "id": "8080a0f5-891a-4542-b0c7-1dd31a297673",
+      "name": "Kende",
+      "slug": "kende",
+      "routeSlug": "category-kende",
+      "description": "Kende komode per sallon, ambiente pritjeje dhe projekte te personalizuara.",
+      "coverImage": "/assets/images/showroom-square-02.webp",
+      "sortOrder": 6,
+      "isVisible": true
+    },
+    {
+      "id": "3525b297-3762-4b39-a8d8-809f3e9795cb",
+      "name": "Divane",
+      "slug": "divane",
+      "routeSlug": "category-divane",
+      "description": "Divane modern dhe klasik per ambiente familjare, studio dhe recepsione.",
+      "coverImage": "/assets/images/showroom-square-06.webp",
+      "sortOrder": 7,
+      "isVisible": true
+    },
+    {
+      "id": "0b5b8555-d12b-42e3-9ea3-c1a6c3fb9580",
+      "name": "Minibar",
+      "slug": "minibar",
+      "routeSlug": "category-minibar",
+      "description": "Zgjidhje te kuruara per pritje, ekspozim dhe komoditet ne shtepi ose biznes.",
+      "coverImage": "/assets/images/showroom-hero-01.webp",
+      "sortOrder": 8,
+      "isVisible": true
+    },
+    {
+      "id": "9458dfdb-7362-4cdd-90f8-cf7c9025d2ba",
+      "name": "Dyshek",
+      "slug": "dyshek",
+      "routeSlug": "category-dyshek",
+      "description": "Opsione rehatie per perdorim ditor, me madhesi dhe fortesi te ndryshme.",
+      "coverImage": "/assets/images/showroom-portrait-03.jpg",
+      "sortOrder": 9,
+      "isVisible": true
+    },
+    {
+      "id": "ac7942ed-801b-4d0c-a40a-7998b562fcd7",
+      "name": "Elektroshtepiake",
+      "slug": "elektroshtepiake",
+      "routeSlug": "category-elektroshtepiake",
+      "description": "Pajisje baze per kuzhinen dhe organizimin praktik te shtepise.",
+      "coverImage": "/assets/images/showroom-square-07.webp",
+      "sortOrder": 10,
+      "isVisible": true
+    },
+    {
+      "id": "09db022d-a880-48e3-b555-6fcfba99632e",
+      "name": "Kredenca",
+      "slug": "kredenca",
+      "routeSlug": "category-kredenca",
+      "description": "Kredenca dhe komoda dekorative per organizim dhe prezantim elegant.",
+      "coverImage": "/assets/images/showroom-square-08.webp",
+      "sortOrder": 11,
+      "isVisible": true
+    },
+    {
+      "id": "e4be90a7-4b98-445e-a8b5-5345ee35eeb0",
+      "name": "Te tjera",
+      "slug": "te-tjera",
+      "routeSlug": "category-te-tjera",
+      "description": "Artikuj shtese, aksesore dhe produkte qe plotesojne koleksionin.",
+      "coverImage": "/assets/images/showroom-square-09.webp",
+      "sortOrder": 12,
+      "isVisible": true
+    }
+  ],
+  "products": [
+    {
+      "id": "c99feb86-36cd-4b23-9d5d-6e68b32d2779",
+      "name": "Laura",
+      "slug": "laura",
+      "categorySlug": "divane",
+      "shortDescription": "Divan elegant per sallon modern, me rehati te larte dhe linja te pastra.",
+      "description": "Model i kuruar per ambient familjar ose zone pritjeje. Ka strukture te qendrueshme, ulje komode dhe prezantim te paster ne cdo kend te shtepise.",
+      "price": "Sipas kerkeses",
+      "oldPrice": "",
+      "sku": "IDEA-001",
+      "materials": "Dru, tekstil dhe sfungjer me densitet te larte",
+      "dimensions": "300 x 210 cm",
+      "colors": [
+        "Bezhe",
+        "Gri",
+        "Olive"
+      ],
+      "highlights": [
+        "Pershtatet mire ne sallon modern",
+        "Material i bute dhe i qendrueshem",
+        "Mundesi porosie ne disa ngjyra"
+      ],
+      "availability": "Ne showroom dhe me porosi",
+      "status": "active",
+      "coverImage": "/assets/images/showroom-square-06.webp",
+      "galleryImages": [
+        "/assets/images/showroom-square-06.webp",
+        "/assets/images/showroom-square-02.webp",
+        "/assets/images/showroom-square-04.webp"
+      ],
+      "createdAt": "2026-04-05T10:51:14.318Z",
+      "updatedAt": "2026-04-05T10:51:14.318Z"
+    },
+    {
+      "id": "06435ada-aa11-4a5e-b6d4-c88ed7985618",
+      "name": "Aurora",
+      "slug": "aurora",
+      "categorySlug": "dhoma-gjumi",
+      "shortDescription": "Komplet dhome gjumi me linja te ngrohta dhe pamje te rregullt.",
+      "description": "Set modern per dhomen e gjumit me fokus te rehati, organizim dhe kombinim te lehte me ngjyrat e ambientit.",
+      "price": "Sipas kerkeses",
+      "oldPrice": "",
+      "sku": "IDEA-002",
+      "materials": "MDF, melamine dhe detaje dekorative",
+      "dimensions": "Madhesi sipas modelit",
+      "colors": [
+        "Dru natyral",
+        "E bardhe",
+        "Gri e hapur"
+      ],
+      "highlights": [
+        "Dizajn i paster per perdorim ditor",
+        "Kombinohet lehte me komodina dhe garderobe",
+        "Zgjidhje e pershtatshme per apartamente dhe vila"
+      ],
+      "availability": "Me porosi",
+      "status": "active",
+      "coverImage": "/assets/images/showroom-portrait-01.jpg",
+      "galleryImages": [
+        "/assets/images/showroom-portrait-01.jpg",
+        "/assets/images/showroom-portrait-02.jpg"
+      ],
+      "createdAt": "2026-04-05T10:51:14.318Z",
+      "updatedAt": "2026-04-05T10:51:14.318Z"
+    },
+    {
+      "id": "127f0ce2-6a89-486d-b0b6-9653972b1613",
+      "name": "Nudo",
+      "slug": "nudo",
+      "categorySlug": "tavolina-karrige",
+      "shortDescription": "Set tavoline ngrenieje me prezantim modern dhe ulje komode.",
+      "description": "Zgjidhje e pershtatshme per ambient familjar, studio moderne dhe projekte hospitality me estetik te paster.",
+      "price": "Sipas kerkeses",
+      "oldPrice": "",
+      "sku": "IDEA-003",
+      "materials": "Dru i perpunuar, metal dhe tekstil",
+      "dimensions": "6 vende",
+      "colors": [
+        "Bezhe",
+        "E zeze",
+        "Dru i erret"
+      ],
+      "highlights": [
+        "Komplet praktik per perdorim te perditshem",
+        "Balancim i mire mes formes dhe funksionit",
+        "I pershtatshem per shtepi dhe restorante"
+      ],
+      "availability": "Ne showroom",
+      "status": "active",
+      "coverImage": "/assets/images/showroom-square-05.webp",
+      "galleryImages": [
+        "/assets/images/showroom-square-05.webp",
+        "/assets/images/showroom-square-01.webp"
+      ],
+      "createdAt": "2026-04-05T10:51:14.318Z",
+      "updatedAt": "2026-04-05T10:51:14.318Z"
+    }
+  ]
+}
