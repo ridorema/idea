@@ -1,4 +1,4 @@
-import { LegacyScripts } from "../components/LegacyScripts";
+import Script from "next/script";
 
 const stylesheets = [
   "/css/bootstrap.css",
@@ -11,6 +11,16 @@ const stylesheets = [
   "/css/ion-range-slider.css",
   "/css/theme.css",
   "/css/next-override.css"
+];
+
+const legacyScriptSources = [
+  "/js/jquery.min.js",
+  "/js/jquery.bootstrap.js",
+  "/js/jquery.magnific-popup.js",
+  "/js/jquery.owl.carousel.js",
+  "/js/jquery.ion.rangeSlider.js",
+  "/js/jquery.isotope.pkgd.js",
+  "/js/main.js"
 ];
 
 export const metadata = {
@@ -61,7 +71,9 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning>
         {children}
-        <LegacyScripts />
+        {legacyScriptSources.map((src) => (
+          <Script key={src} src={src} strategy="beforeInteractive" />
+        ))}
       </body>
     </html>
   );
