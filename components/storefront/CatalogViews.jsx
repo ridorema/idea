@@ -9,56 +9,189 @@ const MAPS_URL = "https://maps.app.goo.gl/2Zx3cbG2hYGXNVKA9";
 const PHONE_HREF = "tel:0692090689";
 const PHONE_LABEL = "069 209 0689";
 
-function StorefrontShell({ title, subtitle, eyebrow, categories, children }) {
+const CATEGORY_ICON_MAP = {
+  "dhoma-gjumi": "f-icon-wardrobe",
+  krevat: "f-icon-bedroom",
+  kuzhina: "f-icon-kitchen",
+  "tavolina-karrige": "f-icon-dining-table",
+  "tavolina-mesi": "f-icon-table",
+  kende: "f-icon-sofa",
+  divane: "f-icon-armchair",
+  minibar: "f-icon-bar-set",
+  dyshek: "f-icon-nightstand",
+  elektroshtepiake: "f-icon-lightning",
+  kredenca: "f-icon-media-cabinet",
+  "te-tjera": "f-icon-accessories",
+  zyra: "f-icon-office",
+  "rafte-hekuri": "f-icon-bookcase"
+};
+
+function getCategoryIcon(slug) {
+  return CATEGORY_ICON_MAP[slug] || "f-icon-accessories";
+}
+
+function LegacyNavbar({ categories }) {
+  const menuCategories = [...(categories || [])];
+
   return (
-    <div className={styles.site}>
-      <header className={styles.topbar}>
-        <div className={styles.topbarInner}>
-          <Link href="/" className={styles.logo}>
+    <nav className="navbar-fixed">
+      <div className="container">
+        <div className="navigation navigation-main">
+          <Link href="/" className="logo">
             <img
               src="/assets/images/logo-idea-furniture.webp"
               alt="Idea Furniture"
-              className={styles.logoImage}
             />
-            <span>Idea Furniture</span>
           </Link>
 
-          <nav className={styles.nav}>
-            <Link href="/" className={styles.navLink}>
-              Kreu
-            </Link>
-            <Link href="/about" className={styles.navLink}>
-              Rreth nesh
-            </Link>
-            <Link href="/products-grid" className={styles.navLink}>
-              Katalogu
-            </Link>
-            <Link href="/contact" className={styles.navLink}>
-              Kontakt
-            </Link>
-            <a href={PHONE_HREF} className={styles.navLink}>
-              {PHONE_LABEL}
-            </a>
-          </nav>
-        </div>
-      </header>
+          <a href="javascript:void(0);" className="open-menu">
+            <i className="icon icon-menu"></i>
+          </a>
 
-      <section className={styles.hero}>
-        <div className={styles.heroInner}>
-          <div className={styles.heroCard}>
-            <span className={styles.eyebrow}>{eyebrow}</span>
-            <h1 className={styles.heroTitle}>{title}</h1>
-            <p className={styles.heroText}>{subtitle}</p>
-            <div className={styles.heroActions}>
-              <a href={PHONE_HREF} className={styles.primaryButton}>
-                Telefono tani
-              </a>
-              <a href={MAPS_URL} target="_blank" rel="noreferrer" className={styles.secondaryButton}>
-                Na vizitoni
-              </a>
+          <div className="floating-menu">
+            <div className="close-menu-wrapper">
+              <span className="close-menu">
+                <i className="icon icon-cross"></i>
+              </span>
             </div>
+
+            <ul>
+              <li>
+                <Link href="/">Kreu</Link>
+              </li>
+              <li>
+                <Link href="/products-grid">
+                  Kategoritë{" "}
+                  <span className="open-dropdown">
+                    <i className="fa fa-angle-down"></i>
+                  </span>
+                </Link>
+                <div className="navbar-dropdown">
+                  <div className="navbar-box">
+                    <div className="box-1">
+                      <div className="image">
+                        <img
+                          src={
+                            menuCategories[0]?.coverImage ||
+                            "/assets/images/showroom-banner-01.jpg"
+                          }
+                          alt="Kategoritë e mobiljeve"
+                        />
+                      </div>
+                      <div className="box">
+                        <div className="h2">Kategoritë kryesore</div>
+                        <div className="clearfix">
+                          <p>
+                            Zgjidh mobiljet sipas ambientit dhe eksploro
+                            koleksionet kryesore për shtëpinë dhe biznesin.
+                          </p>
+                          <Link
+                            className="btn btn-clean btn-big"
+                            href="/products-grid"
+                          >
+                            Shiko koleksionin
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="box-2">
+                      <div
+                        className="clearfix categories"
+                        style={{ maxHeight: "52vh", overflowY: "auto" }}
+                      >
+                        <div className="row">
+                          {menuCategories.map((category) => (
+                            <div className="col-sm-3 col-xs-6" key={category.id}>
+                              <Link href={buildCategoryRoute(category.slug)}>
+                                <figure>
+                                  <i className={`f-icon ${getCategoryIcon(category.slug)}`}></i>
+                                  <figcaption>{category.name}</figcaption>
+                                </figure>
+                              </Link>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <Link href="/products-grid">Koleksioni</Link>
+              </li>
+              <li>
+                <Link href="/about">Rreth nesh</Link>
+              </li>
+              <li>
+                <Link href="/contact">Kontakt</Link>
+              </li>
+            </ul>
           </div>
         </div>
+      </div>
+    </nav>
+  );
+}
+
+function StorefrontShell({
+  title,
+  subtitle,
+  eyebrow,
+  categories,
+  heroImage = "/assets/images/showroom-banner-01.jpg",
+  breadcrumbs = [],
+  children
+}) {
+  return (
+    <div className={styles.site}>
+      <LegacyNavbar categories={categories} />
+
+      <section
+        className="main-header"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
+        <header>
+          <div className="container">
+            {eyebrow ? (
+              <div
+                className="h5"
+                style={{
+                  marginBottom: 8,
+                  color: "#ffbb00",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em"
+                }}
+              >
+                {eyebrow}
+              </div>
+            ) : null}
+            <h1 className="h2 title">{title}</h1>
+            {subtitle ? (
+              <p style={{ color: "rgba(255, 255, 255, 0.82)", maxWidth: 760 }}>
+                {subtitle}
+              </p>
+            ) : null}
+            {breadcrumbs.length > 0 ? (
+              <ol className="breadcrumb breadcrumb-inverted">
+                <li>
+                  <Link href="/">
+                    <span className="icon icon-home"></span>
+                  </Link>
+                </li>
+                {breadcrumbs.map((crumb, index) => (
+                  <li key={`${crumb.label}-${index}`}>
+                    {crumb.href ? (
+                      <Link href={crumb.href}>{crumb.label}</Link>
+                    ) : (
+                      <span className="active">{crumb.label}</span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            ) : null}
+          </div>
+        </header>
       </section>
 
       {children}
@@ -69,8 +202,8 @@ function StorefrontShell({ title, subtitle, eyebrow, categories, children }) {
             <div>
               <h2 className={styles.sectionTitle}>Idea Furniture</h2>
               <p className={styles.footerText}>
-                Tirane, rruga Kavajes perballe kompleksit Delijorgji. Menaxho
-                produktet nga paneli admin dhe publikoji menjehere ne katalog.
+                Tirane, rruga Kavajes perballe kompleksit Delijorgji. Na kontaktoni
+                per informacion, porosi dhe cmime.
               </p>
             </div>
             <div className={styles.footerLinks}>
@@ -155,9 +288,11 @@ export function CatalogOverviewPage({ categories, products }) {
   return (
     <StorefrontShell
       categories={categories}
-      eyebrow="Katalog dinamik"
-      title="Kategorite dhe produktet tani menaxhohen nga paneli admin."
-      subtitle="Menaxheri mund te shtoje produkte te reja, te ngarkoje foto dhe te plotesoje informacionet kryesore pa prekur kodin."
+      heroImage="/assets/images/showroom-banner-01.jpg"
+      eyebrow="Koleksioni"
+      title="Koleksioni i produkteve"
+      subtitle="Shfleto kategorite dhe produktet e publikuara."
+      breadcrumbs={[{ label: "Katalogu" }]}
     >
       <section className={styles.section}>
         <div className={styles.sectionInner}>
@@ -179,14 +314,14 @@ export function CatalogOverviewPage({ categories, products }) {
             <div>
               <h2 className={styles.sectionTitle}>Produktet e publikuara</h2>
               <p className={styles.sectionText}>
-                Ketu shfaqen produktet aktive te futura nga paneli i menaxherit.
+                Ketu shfaqen produktet e publikuara per kete katalog.
               </p>
             </div>
           </div>
 
           {products.length === 0 ? (
             <div className={styles.emptyCard}>
-              Nuk ka ende produkte aktive. Hyr te paneli admin dhe shto produktin e pare.
+              Ende nuk ka produkte te publikuara. Sapo te shtohen, do te shfaqen ketu.
             </div>
           ) : (
             <ProductGrid products={products} categories={categories} />
@@ -201,9 +336,14 @@ export function CategoryCatalogPage({ categories, category, products }) {
   return (
     <StorefrontShell
       categories={categories}
+      heroImage={category.coverImage || "/assets/images/showroom-banner-01.jpg"}
       eyebrow="Kategori"
       title={category.name}
       subtitle={category.description || "Eksploro produktet ne kete kategori."}
+      breadcrumbs={[
+        { label: "Kategoritë", href: "/products-grid" },
+        { label: category.name }
+      ]}
     >
       <section className={styles.section}>
         <div className={styles.sectionInner}>
@@ -221,7 +361,7 @@ export function CategoryCatalogPage({ categories, category, products }) {
 
           {products.length === 0 ? (
             <div className={styles.emptyCard}>
-              Nuk ka ende produkte ne kete kategori. Menaxheri mund t'i shtoje nga paneli admin.
+              Ende nuk ka produkte ne kete kategori. Sapo te shtohen, do te shfaqen ketu.
             </div>
           ) : (
             <ProductGrid products={products} categories={categories} />
@@ -244,9 +384,21 @@ export function ProductCatalogPage({
   return (
     <StorefrontShell
       categories={categories}
+      heroImage={
+        product.coverImage ||
+        category?.coverImage ||
+        "/assets/images/showroom-banner-01.jpg"
+      }
       eyebrow={category?.name || "Produkt"}
       title={product.name}
       subtitle={product.shortDescription || product.description}
+      breadcrumbs={[
+        {
+          label: category?.name || "Kategoritë",
+          href: category ? buildCategoryRoute(category.slug) : "/products-grid"
+        },
+        { label: product.name }
+      ]}
     >
       <section className={styles.section}>
         <div className={styles.sectionInner}>
@@ -330,7 +482,7 @@ export function ProductCatalogPage({
             <div>
               <h2 className={styles.sectionTitle}>Pershkrimi</h2>
               <p className={styles.sectionText}>
-                Informacioni me poshte menaxhohet direkt nga paneli admin.
+                Detaje dhe pershkrim per kete model.
               </p>
             </div>
           </div>
@@ -371,9 +523,11 @@ export function AboutPageView({ categories }) {
   return (
     <StorefrontShell
       categories={categories}
+      heroImage="/assets/images/showroom-hero-01.webp"
       eyebrow="Rreth nesh"
       title="Mobilje te menduara per jeten e perditshme dhe per hapesira me identitet."
       subtitle="Idea Furniture eshte krijuar per t'u ofruar klienteve nje perzgjedhje me stil, funksion dhe cmime te arsyeshme. Fokusin e kemi te rehati, prezantimi i paster dhe komunikimi i thjeshte me klientin."
+      breadcrumbs={[{ label: "Rreth nesh" }]}
     >
       <section className={styles.section}>
         <div className={styles.sectionInner}>
@@ -433,7 +587,7 @@ export function AboutPageView({ categories }) {
                   <span className={styles.statValue}>Cdo dite</span>
                   <p className={styles.statLabel}>
                     perditesojme menyren si prezantohen koleksionet dhe si
-                    menaxhohet informacioni i produkteve.
+                    i pasurojme detajet e produkteve.
                   </p>
                 </div>
               </div>

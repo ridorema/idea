@@ -6,9 +6,20 @@ const INSTAGRAM_URL = "https://www.instagram.com/idea.furniture.al/";
 const MAPS_URL = "https://maps.app.goo.gl/2Zx3cbG2hYGXNVKA9";
 const PHONE_DISPLAY = "069 209 0689";
 const PHONE_HREF = "tel:0692090689";
+const COMMENT_SECTION_CLASSES = new Set([
+  "comments",
+  "comment-wrapper",
+  "comment-header",
+  "comment-add",
+  "comment-block",
+  "comment-user",
+  "comment-desc",
+  "comment-reply-message"
+]);
 
 function stripUnsafeTags(html) {
   return html
+    .replace(/<!--[\s\S]*?-->/g, "")
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
     .replace(/<noscript\b[^<]*(?:(?!<\/noscript>)<[^<]*)*<\/noscript>/gi, "");
 }
@@ -17,6 +28,12 @@ function applyContentOverrides(html) {
   return html
     .replaceAll("Joe Doe", "Idea Furniture")
     .replaceAll("John Doe", "Idea Furniture")
+    .replace(
+      /Këtu janë të organizuara të gjitha kategoritë kryesore që duam të prezantojmë në këtë fazë të biznesit, pa filtra apo elemente demo që nuk na shërbejnë\./,
+      "Zgjidh kategorine qe te pershtatet me mire."
+    )
+    .replaceAll("Më të mirat e 2017", "Më të mirat")
+    .replace(/(\d{2}\.\d{2}\.)20\d{2}\b/g, "$1")
     .replace(
       /<div class="designer">[\s\S]*?<div class="btn btn-add">[\s\S]*?<\/div>\s*<\/div>/,
       `<div class="designer">
@@ -34,8 +51,8 @@ function applyContentOverrides(html) {
                                             <a href="${INSTAGRAM_URL}" target="_blank" rel="noreferrer" class="btn btn-main btn-xs"><i class="fa fa-instagram"></i></a>
                                             <a href="${MAPS_URL}" target="_blank" rel="noreferrer" class="btn btn-main btn-xs"><i class="fa fa-map-marker"></i></a>
                                         </p>
-                                    </div> <!--/name-->
-                                </div> <!--/box-->
+                                    </div>
+                                </div>
                                 <div class="btn btn-add">
                                     <a href="${PHONE_HREF}" aria-label="Telefono Idea Furniture"><i class="icon icon-phone-handset"></i></a>
                                 </div>
@@ -62,6 +79,31 @@ function applyContentOverrides(html) {
     );
 }
 
+function shouldRemoveCommentNode(node) {
+  if (!node || node.type !== "tag" || !node.attribs) {
+    return false;
+  }
+
+  const className = `${node.attribs.class || node.attribs.className || ""}`;
+
+  return className
+    .split(/\s+/)
+    .filter(Boolean)
+    .some((classNamePart) => COMMENT_SECTION_CLASSES.has(classNamePart));
+}
+
+function parseLegacyHtml(html) {
+  return parse(html, {
+    replace(node) {
+      if (shouldRemoveCommentNode(node)) {
+        return <></>;
+      }
+
+      return undefined;
+    }
+  });
+}
+
 export function SitePageContent({ page }) {
-  return <>{parse(stripUnsafeTags(applyContentOverrides(page.bodyHtml)))}</>;
+  return <>{parseLegacyHtml(stripUnsafeTags(applyContentOverrides(page.bodyHtml)))}</>;
 }

@@ -1,5 +1,25 @@
-/* Product page: keep the original structure, hide only the real left sidebar below,
-   and make the main image a bit smaller and cleaner */
+:root {
+    --site-promo-height: 0px;
+}
+
+html.has-site-promo {
+    --site-promo-height: 68px;
+}
+
+@media (max-width: 767px) {
+    html.has-site-promo {
+        --site-promo-height: 74px;
+    }
+}
+
+html.has-site-promo body {
+    padding-top: var(--site-promo-height);
+}
+
+html.has-site-promo nav.navbar-fixed {
+    top: var(--site-promo-height);
+}
+
 section.product .main {
     padding: 36px 0 50px;
 }
@@ -72,7 +92,6 @@ section.product > .info > .container > .row > .col-md-8:last-child {
     }
 }
 
-/* Categories dropdown: prevent label overlap and keep items readable */
 nav .navigation-main .floating-menu > ul > li .navbar-dropdown .navbar-box .box-1 {
     width: 36%;
 }

@@ -1,4 +1,6 @@
-import Script from "next/script";
+import { LegacyScripts } from "../components/LegacyScripts";
+import { SitePromoBanner } from "../components/SitePromoBanner";
+import { SitePromoBannerState } from "../components/SitePromoBannerState";
 
 const stylesheets = [
   "/css/bootstrap.css",
@@ -11,16 +13,6 @@ const stylesheets = [
   "/css/ion-range-slider.css",
   "/css/theme.css",
   "/css/next-override.css"
-];
-
-const legacyScriptSources = [
-  "/js/jquery.min.js",
-  "/js/jquery.bootstrap.js",
-  "/js/jquery.magnific-popup.js",
-  "/js/jquery.owl.carousel.js",
-  "/js/jquery.ion.rangeSlider.js",
-  "/js/jquery.isotope.pkgd.js",
-  "/js/main.js"
 ];
 
 export const metadata = {
@@ -49,6 +41,19 @@ export default function RootLayout({ children }) {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  if (!window.location.pathname.startsWith("/admin")) {
+                    document.documentElement.classList.add("has-site-promo");
+                  }
+                } catch (error) {}
+              })();
+            `
+          }}
+        />
         <link
           rel="icon"
           type="image/webp"
@@ -70,10 +75,10 @@ export default function RootLayout({ children }) {
         ))}
       </head>
       <body suppressHydrationWarning>
+        <SitePromoBanner />
+        <SitePromoBannerState />
         {children}
-        {legacyScriptSources.map((src) => (
-          <Script key={src} src={src} strategy="beforeInteractive" />
-        ))}
+        <LegacyScripts />
       </body>
     </html>
   );

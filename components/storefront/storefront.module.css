@@ -8,7 +8,7 @@
 
 .topbar {
   position: sticky;
-  top: 0;
+  top: var(--site-promo-height, 0px);
   z-index: 30;
   backdrop-filter: blur(14px);
   background: rgba(248, 244, 238, 0.88);

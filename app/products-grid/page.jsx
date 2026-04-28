@@ -4,8 +4,8 @@ import { getVisibleCategories, readCatalog, sortProducts } from "../../lib/catal
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Katalogu | Idea Furniture",
-  description: "Kategori dhe produkte te menaxhuara nga paneli admin."
+  title: "Koleksioni | Idea Furniture",
+  description: "Shfleto kategorite dhe produktet e publikuara."
 };
 
 export default async function ProductsGridPage() {
