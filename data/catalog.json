@@ -6,7 +6,7 @@
       "slug": "dhoma-gjumi",
       "routeSlug": "category-dhoma-gjumi",
       "description": "Komplete, garderoba dhe komodina per nje ambient te plote dhe te rregullt gjumi.",
-      "coverImage": "/assets/images/showroom-portrait-01.jpg",
+      "coverImage": "/assets/images/2024/Dhoma/gloria copy.png",
       "sortOrder": 1,
       "isVisible": true
     },
@@ -16,7 +16,7 @@
       "slug": "krevat",
       "routeSlug": "category-krevat",
       "description": "Modele krevatesh klasike dhe moderne qe pershtaten me cdo hapesire.",
-      "coverImage": "/assets/images/showroom-portrait-02.jpg",
+      "coverImage": "/assets/images/2024/Krevat/onan copy.png",
       "sortOrder": 2,
       "isVisible": true
     },
@@ -26,7 +26,7 @@
       "slug": "kuzhina",
       "routeSlug": "category-kuzhina",
       "description": "Zgjidhje funksionale dhe elegante per kuzhinen e perditshme dhe ambientet e ngrenies.",
-      "coverImage": "/assets/images/showroom-banner-01.jpg",
+      "coverImage": "/assets/images/2023/Kuzhina/lago copy.png",
       "sortOrder": 3,
       "isVisible": true
     },
@@ -36,7 +36,7 @@
       "slug": "tavolina-karrige",
       "routeSlug": "category-tavolina-karrige",
       "description": "Sete ngrenieje per familjen, pritjen dhe ambientin e restorantit ose studios.",
-      "coverImage": "/assets/images/showroom-square-05.webp",
+      "coverImage": "/assets/images/2024/Tavolina buke/ambra copy.png",
       "sortOrder": 4,
       "isVisible": true
     },
@@ -46,7 +46,7 @@
       "slug": "tavolina-mesi",
       "routeSlug": "category-tavolina-mesi",
       "description": "Tavolina praktike qe kompletojne sallonin me stil, funksion dhe shije.",
-      "coverImage": "/assets/images/showroom-square-01.webp",
+      "coverImage": "/assets/images/2025/Tavolina Mesi/anabel copy.png",
       "sortOrder": 5,
       "isVisible": true
     },
@@ -56,7 +56,7 @@
       "slug": "kende",
       "routeSlug": "category-kende",
       "description": "Kende komode per sallon, ambiente pritjeje dhe projekte te personalizuara.",
-      "coverImage": "/assets/images/showroom-square-02.webp",
+      "coverImage": "/assets/images/2026/Kende/Corvini 1.png",
       "sortOrder": 6,
       "isVisible": true
     },
@@ -76,7 +76,7 @@
       "slug": "minibar",
       "routeSlug": "category-minibar",
       "description": "Zgjidhje te kuruara per pritje, ekspozim dhe komoditet ne shtepi ose biznes.",
-      "coverImage": "/assets/images/showroom-hero-01.webp",
+      "coverImage": "/assets/images/2023/Minibar/adan copy.png",
       "sortOrder": 8,
       "isVisible": true
     },
@@ -86,7 +86,7 @@
       "slug": "dyshek",
       "routeSlug": "category-dyshek",
       "description": "Opsione rehatie per perdorim ditor, me madhesi dhe fortesi te ndryshme.",
-      "coverImage": "/assets/images/showroom-portrait-03.jpg",
+      "coverImage": "/assets/images/2023/Dyshek/aloe vera copy.png",
       "sortOrder": 9,
       "isVisible": true
     },
@@ -106,7 +106,7 @@
       "slug": "kredenca",
       "routeSlug": "category-kredenca",
       "description": "Kredenca dhe komoda dekorative per organizim dhe prezantim elegant.",
-      "coverImage": "/assets/images/showroom-square-08.webp",
+      "coverImage": "/assets/images/2024/Kredence - Bar/frater.png",
       "sortOrder": 11,
       "isVisible": true
     },
