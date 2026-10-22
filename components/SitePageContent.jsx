@@ -1,4 +1,5 @@
 import parse from "html-react-parser";
+import { StorefrontHeader, FurnitureHero } from "./storefront/StorefrontEntrance";
 
 const FACEBOOK_URL =
   "https://www.facebook.com/people/Idea-Furnitureal/100090127205163/?locale=ga_IE#";
@@ -95,6 +96,8 @@ function shouldRemoveCommentNode(node) {
 function parseLegacyHtml(html) {
   return parse(html, {
     replace(node) {
+      if (node.type === "tag" && node.name === "nav" && node.attribs?.class?.includes("navbar-fixed")) return <StorefrontHeader />;
+      if (node.type === "tag" && node.name === "section" && node.attribs?.class === "header-content") return <FurnitureHero />;
       if (shouldRemoveCommentNode(node)) {
         return <></>;
       }
