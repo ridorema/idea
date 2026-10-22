@@ -30,13 +30,20 @@ function getTransporter() {
 }
 
 export async function POST(request) {
+  const origin = request.headers.get("origin");
+  if (!origin || origin !== new URL(request.url).origin) {
+    return new NextResponse("Forbidden", { status: 403 });
+  }
+  if (Number(request.headers.get("content-length")) > 20000) {
+    return new NextResponse("Message too large", { status: 413 });
+  }
   const formData = await request.formData();
   const name = getFormValue(formData, "Name");
   const email = getFormValue(formData, "Email");
   const subject = getFormValue(formData, "Subject");
   const comment = getFormValue(formData, "Comment");
 
-  if (!name || !email || !comment) {
+  if (!name || !email || !comment || name.length > 120 || subject.length > 200 || comment.length > 10000 || email.length > 254 || !/^[^\s@<>\r\n]+@[^\s@<>\r\n]+\.[^\s@<>\r\n]+$/.test(email) || /[\r\n]/.test(subject + name)) {
     return redirectTo("/contact-failed.html", request);
   }
 
@@ -47,7 +54,7 @@ export async function POST(request) {
     console.warn(
       "Contact form submitted without SMTP configuration. Set CONTACT_EMAIL and SMTP_* variables to enable delivery."
     );
-    return redirectTo("/contact-success.html", request);
+    return redirectTo("/contact-failed.html", request);
   }
 
   try {
