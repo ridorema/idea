@@ -44,11 +44,11 @@ function LegacyNavbar({ categories }) {
             />
           </Link>
 
-          <a href="javascript:void(0);" className="open-menu">
+          <a href="#site-menu" className="open-menu">
             <i className="icon icon-menu"></i>
           </a>
 
-          <div className="floating-menu">
+          <div className="floating-menu" id="site-menu">
             <div className="close-menu-wrapper">
               <span className="close-menu">
                 <i className="icon icon-cross"></i>
@@ -121,6 +121,9 @@ function LegacyNavbar({ categories }) {
                 <Link href="/products-grid">Koleksioni</Link>
               </li>
               <li>
+                <Link href="/ideas">Ide</Link>
+              </li>
+              <li>
                 <Link href="/about">Rreth nesh</Link>
               </li>
               <li>
@@ -149,7 +152,7 @@ function StorefrontShell({
 
       <section
         className="main-header"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `linear-gradient(90deg, rgba(20, 16, 14, 0.78), rgba(20, 16, 14, 0.48)), url("${heroImage}")` }}
       >
         <header>
           <div className="container">
@@ -427,7 +430,7 @@ export function ProductCatalogPage({
 
               <div className={styles.metaRow}>
                 {category ? <span className={styles.pill}>{category.name}</span> : null}
-                {product.status ? <span className={styles.pill}>{product.status}</span> : null}
+
               </div>
 
               <div className={styles.infoList}>
@@ -647,20 +650,8 @@ export function AboutPageView({ categories }) {
       <section className={styles.section}>
         <div className={styles.sectionInner}>
           <div className={styles.storyCard}>
-            <h2 className={styles.sectionTitle}>Pse kjo faqe eshte me e qarte tani</h2>
-            <p className={styles.storyText}>
-              Ne vend te kartave te personelit apo elementeve qe nuk i shtonin
-              vlere reale prezantimit, faqja e re e "Rreth nesh" fokusohet te ajo
-              qe klienti ka vertet nevoje te lexoje: kush jemi, cfare ofrojme,
-              si punojme dhe pse Idea Furniture eshte nje zgjedhje praktike per
-              mobilimin e ambientit.
-            </p>
-            <p className={styles.storyText}>
-              Kjo qasje e ben faqen me te paster, me me shume permbajtje te dobishme
-              dhe me me pak elemente dekorative pa funksion. Rezultati eshte nje
-              prezantim me profesional, me i lexueshem dhe me bindes per klientin
-              qe viziton faqen per here te pare.
-            </p>
+            <h2 className={styles.sectionTitle}>Vizitoni showroom-in tonë</h2>
+            <p className={styles.storyText}>Na gjeni në Tiranë, rruga e Kavajës, përballë kompleksit Delijorgji. Shikoni modelet nga afër dhe na kontaktoni për përmasat, variantet dhe çmimet.</p>
             <div className={styles.heroActions}>
               <Link href="/products-grid" className={styles.primaryButton}>
                 Shiko katalogun
