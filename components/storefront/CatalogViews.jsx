@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { buildCategoryRoute, buildProductRoute } from "../../lib/catalog";
 import styles from "./storefront.module.css";
+import { StorefrontHeader } from "./StorefrontEntrance";
 
 const INSTAGRAM_URL = "https://www.instagram.com/idea.furniture.al/";
 const FACEBOOK_URL =
@@ -148,7 +149,7 @@ function StorefrontShell({
 }) {
   return (
     <div className={styles.site}>
-      <LegacyNavbar categories={categories} />
+      <StorefrontHeader />
 
       <section
         className="main-header"
