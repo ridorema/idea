@@ -56,7 +56,7 @@ function revalidateCatalogPaths(categoryRouteSlug, productSlug) {
 
 export async function loginAction(formData) {
   const username = stringValue(formData, "username");
-  const password = stringValue(formData, "password");
+  const password = String(formData.get("password") || "");
 
   if (!validateAdminCredentials(username, password)) {
     redirect(

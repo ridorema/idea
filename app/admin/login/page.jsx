@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getAdminCredentials, isAdminAuthenticated } from "../../../lib/admin-auth";
+import { isAdminAuthenticated } from "../../../lib/admin-auth";
 import styles from "../../../components/admin/admin.module.css";
 import { loginAction } from "../actions";
 
@@ -19,7 +19,6 @@ export default async function AdminLoginPage({ searchParams }) {
 
   const params = await searchParams;
   const errorMessage = readMessage(params, "error");
-  const credentials = getAdminCredentials();
 
   return (
     <div className={styles.loginWrap}>
@@ -43,7 +42,6 @@ export default async function AdminLoginPage({ searchParams }) {
               id="admin-username"
               className={styles.input}
               name="username"
-              defaultValue={credentials.username}
               autoComplete="username"
               required
             />
