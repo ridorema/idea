@@ -97,6 +97,14 @@
   text-decoration: none;
 }
 
+/* A quiet offer strip leaves the furniture and brand as the main focus. */
+.banner { background: #c51f2a; box-shadow: none; border-bottom: 0; }
+.badge { font-size: 10px; padding: 5px 8px; border-radius: 2px; }
+.title { font-size: 12px; font-weight: 500; }
+.subtitle { display: none; }
+.cta { color: #fff; background: transparent; box-shadow: none; padding: 7px 0; border-radius: 0; border-bottom: 1px solid #ffffff70; font-size: 12px; }
+.cta:hover { background: transparent; color: #fff; box-shadow: none; }
+
 @media (max-width: 767px) {
   .banner {
     height: var(--site-promo-height, 74px);
